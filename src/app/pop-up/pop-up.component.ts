@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output, SimpleChange } from "@angular/core";
 import { Logger } from "../logger.service";
 
 @Component({
@@ -56,8 +56,9 @@ export class PopUpComponent {
   @Output() closed = new EventEmitter<void>();
   @Input() title!: string;
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChange) {
     this.logIt("OnChanges"); // it could be console.log("OnChanges")
+    console.log(changes);
   }
 
   ngOnInit() {
